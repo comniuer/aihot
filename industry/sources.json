@@ -1,368 +1,291 @@
 {
-  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里新建、修改和暂停。字段说明见 docs/customize.md。",
+  "$comment": "住房租赁观察初始信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台'信源'里新建、修改和暂停。字段说明见 docs/customize.md。",
   "sources": [
     {
-      "id": "rss-openai-news",
-      "name": "OpenAI News",
-      "kind": "rss",
+      "id": "mohurd-policy",
+      "name": "住房和城乡建设部",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://openai.com/news/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "openai",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-google-deepmind",
-      "name": "Google DeepMind",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://deepmind.google/blog/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-google-research",
-      "name": "Google Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://research.google/blog/rss/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-hugging-face",
-      "name": "Hugging Face Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://huggingface.co/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "hugging-face",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "开源"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-microsoft-research",
-      "name": "Microsoft Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.microsoft.com/en-us/research/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "microsoft",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-nvidia-blog",
-      "name": "NVIDIA Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://blogs.nvidia.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "nvidia",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-aws-ml",
-      "name": "AWS Machine Learning Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://aws.amazon.com/blogs/machine-learning/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://www.mohurd.gov.cn/gongkai/zhengce/zhengcefilelib/index.html",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "教程"
-      ],
+      "interval_minutes": 360,
+      "tags": ["官方", "政策"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-github-ai",
-      "name": "GitHub Blog · AI & ML",
-      "kind": "rss",
+      "id": "shanghai-fgj",
+      "name": "上海市房屋管理局",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://github.blog/ai-and-ml/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://fgj.sh.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
+      "interval_minutes": 360,
+      "tags": ["官方", "上海"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-mistral",
-      "name": "Mistral AI",
-      "kind": "rss",
+      "id": "hangzhou-fgj",
+      "name": "杭州住房保障和房产管理局",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://mistral.ai/news/rss",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://fgj.hangzhou.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
+      "interval_minutes": 360,
+      "tags": ["官方", "杭州"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-bair",
-      "name": "Berkeley AI Research",
-      "kind": "rss",
+      "id": "nanjing-fcjj",
+      "name": "南京住房保障和房产局",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://bair.berkeley.edu/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://fcj.nanjing.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "研究"
-      ],
+      "interval_minutes": 360,
+      "tags": ["官方", "南京"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-the-verge-ai",
-      "name": "The Verge · AI",
-      "kind": "rss",
+      "id": "chengdu-zjj",
+      "name": "成都住房和城乡建设局",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://cdsw.chengdu.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
-      "tier": "T2",
+      "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
+      "interval_minutes": 360,
+      "tags": ["官方", "成都"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-techcrunch-ai",
-      "name": "TechCrunch · AI",
-      "kind": "rss",
+      "id": "wuhan-fgj",
+      "name": "武汉住房保障和房屋管理局",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://techcrunch.com/category/artificial-intelligence/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://fgj.wuhan.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
-      "tier": "T2",
+      "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
+      "interval_minutes": 360,
+      "tags": ["官方", "武汉"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-ars-technica-ai",
-      "name": "Ars Technica · AI",
-      "kind": "rss",
+      "id": "changsha-csj",
+      "name": "长沙住房和城乡建设局",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://arstechnica.com/ai/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://csj.changsha.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
-      "tier": "T2",
+      "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
+      "interval_minutes": 360,
+      "tags": ["官方", "长沙"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-mit-tech-review-ai",
-      "name": "MIT Technology Review · AI",
-      "kind": "rss",
+      "id": "hefei-zjj",
+      "name": "合肥住房保障和房产管理局",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://zjj.hefei.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": ["官方", "合肥"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wuxi-zjj",
+      "name": "无锡住房和城乡建设局",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjj.wuxi.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": ["官方", "无锡"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "changzhou-zjj",
+      "name": "常州住房和城乡建设局",
+      "kind": "web_list",
+      "config": {
+        "url": "https://zjj.changzhou.gov.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": ["官方", "常州"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "meadin-rental",
+      "name": "迈点网 · 租赁住宅",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.meadin.com/rendez/",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "媒体"
-      ],
+      "tags": ["媒体"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-the-decoder",
-      "name": "The Decoder",
-      "kind": "rss",
+      "id": "cric-rental",
+      "name": "克而瑞租住",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://the-decoder.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-simon-willison",
-      "name": "Simon Willison",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://simonwillison.net/atom/everything/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://rent.cric.com/",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "个人"
-      ],
+      "tags": ["媒体", "研报"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-import-ai",
-      "name": "Import AI",
-      "kind": "rss",
+      "id": "ke-research",
+      "name": "贝壳研究院",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://importai.substack.com/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://research.ke.com/",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T2",
-      "owner_entity_id": null,
+      "owner_entity_id": "ke",
       "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "个人",
-        "周刊"
-      ],
+      "interval_minutes": 120,
+      "tags": ["研报", "企业发布"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-latent-space",
-      "name": "Latent Space",
-      "kind": "rss",
+      "id": "vanke-bohu",
+      "name": "万科泊寓",
+      "kind": "web_list",
       "config": {
-        "feedUrl": "https://www.latent.space/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://www.bohuyu.com/",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
-      "tier": "T2",
+      "tier": "T1",
+      "owner_entity_id": "vanke-bohu",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": ["企业发布", "官方"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "longfor-guanyu",
+      "name": "龙湖冠寓",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.longfor.com/business/guanyu",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "longfor-guanyu",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": ["企业发布", "官方"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "ziroom-news",
+      "name": "自如",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.ziroom.com/news/",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "ziroom",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["企业发布"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "sse-reits",
+      "name": "上交所 REITs 公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.sse.com.cn/disclosure/bond/announcement/product/",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "个人"
-      ],
+      "interval_minutes": 360,
+      "tags": ["官方", "REITs"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "szse-reits",
+      "name": "深交所 REITs 公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.szse.cn/disclosure/bond/announcement/index.html",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": ["官方", "REITs"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     }
