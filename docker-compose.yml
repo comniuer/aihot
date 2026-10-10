@@ -25,7 +25,7 @@ x-backend: &backend
 
 services:
   db:
-    image: postgres:17-alpine
+    image: public.ecr.aws/docker/library/postgres:17-alpine
     restart: unless-stopped
     environment:
       POSTGRES_USER: aihot
@@ -85,7 +85,7 @@ services:
         condition: service_started
 
   caddy:
-    image: caddy:2-alpine
+    image: public.ecr.aws/docker/library/caddy:2-alpine
     profiles: ["https"]
     restart: unless-stopped
     ports:
