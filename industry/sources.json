@@ -1,291 +1,243 @@
 {
-  "$comment": "住房租赁观察初始信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台'信源'里新建、修改和暂停。字段说明见 docs/customize.md。",
+  "$comment": "教育资讯初始信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台'信源'里新建、修改和暂停。字段说明见 docs/customize.md。",
   "sources": [
     {
-      "id": "mohurd-policy",
-      "name": "住房和城乡建设部",
+      "id": "moe",
+      "name": "教育部",
       "kind": "web_list",
       "config": {
-        "url": "https://www.mohurd.gov.cn/gongkai/zhengce/zhengcefilelib/index.html",
+        "url": "https://www.moe.gov.cn/",
         "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "政策"],
+      "tags": ["官方", "全国", "教师", "机构"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "shanghai-fgj",
-      "name": "上海市房屋管理局",
+      "id": "neea",
+      "name": "教育部教育考试院",
       "kind": "web_list",
       "config": {
-        "url": "https://fgj.sh.gov.cn/",
+        "url": "https://www.neea.edu.cn/",
         "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "上海"],
+      "tags": ["官方", "全国", "学生"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "hangzhou-fgj",
-      "name": "杭州住房保障和房产管理局",
+      "id": "gd-edu",
+      "name": "广东省教育厅",
       "kind": "web_list",
       "config": {
-        "url": "https://fgj.hangzhou.gov.cn/",
+        "url": "http://edu.gd.gov.cn/",
         "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "杭州"],
+      "tags": ["官方", "广东", "家长", "教师"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "nanjing-fcjj",
-      "name": "南京住房保障和房产局",
+      "id": "gd-eea",
+      "name": "广东省教育考试院",
       "kind": "web_list",
       "config": {
-        "url": "https://fcj.nanjing.gov.cn/",
+        "url": "https://eea.gd.gov.cn/",
         "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "南京"],
+      "tags": ["官方", "广东", "学生", "家长"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "chengdu-zjj",
-      "name": "成都住房和城乡建设局",
+      "id": "sz-edu",
+      "name": "深圳市教育局",
       "kind": "web_list",
       "config": {
-        "url": "https://cdsw.chengdu.gov.cn/",
+        "url": "https://szeb.sz.gov.cn/",
         "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "成都"],
+      "tags": ["官方", "广东", "深圳", "家长", "学生"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "wuhan-fgj",
-      "name": "武汉住房保障和房屋管理局",
+      "id": "sz-zkb",
+      "name": "深圳市招生考试办公室",
       "kind": "web_list",
       "config": {
-        "url": "https://fgj.wuhan.gov.cn/",
+        "url": "https://www.zkb.sz.gov.cn/",
         "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "武汉"],
+      "tags": ["官方", "广东", "深圳", "学生", "家长"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "changsha-csj",
-      "name": "长沙住房和城乡建设局",
+      "id": "gz-edu",
+      "name": "广州市教育局",
       "kind": "web_list",
       "config": {
-        "url": "https://csj.changsha.gov.cn/",
+        "url": "https://jyj.gz.gov.cn/",
         "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "长沙"],
+      "tags": ["官方", "广东", "广州", "家长"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "hefei-zjj",
-      "name": "合肥住房保障和房产管理局",
+      "id": "jyb",
+      "name": "中国教育报",
       "kind": "web_list",
       "config": {
-        "url": "https://zjj.hefei.gov.cn/",
+        "url": "http://www.jyb.cn/",
         "_aihot": { "initialBackfillLimit": 5 }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 360,
-      "tags": ["官方", "合肥"],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "wuxi-zjj",
-      "name": "无锡住房和城乡建设局",
-      "kind": "web_list",
-      "config": {
-        "url": "https://zjj.wuxi.gov.cn/",
-        "_aihot": { "initialBackfillLimit": 5 }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 360,
-      "tags": ["官方", "无锡"],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "changzhou-zjj",
-      "name": "常州住房和城乡建设局",
-      "kind": "web_list",
-      "config": {
-        "url": "https://zjj.changzhou.gov.cn/",
-        "_aihot": { "initialBackfillLimit": 5 }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 360,
-      "tags": ["官方", "常州"],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "meadin-rental",
-      "name": "迈点网 · 租赁住宅",
-      "kind": "web_list",
-      "config": {
-        "url": "https://www.meadin.com/rendez/",
-        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["媒体"],
+      "tags": ["资讯", "全国", "教师", "家长"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "cric-rental",
-      "name": "克而瑞租住",
+      "id": "eol",
+      "name": "中国教育在线",
       "kind": "web_list",
       "config": {
-        "url": "https://rent.cric.com/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "url": "https://www.eol.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["媒体", "研报"],
+      "tags": ["资讯", "全国", "学生", "家长"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "ke-research",
-      "name": "贝壳研究院",
-      "kind": "web_list",
+      "id": "jiemodui",
+      "name": "芥末堆",
+      "kind": "rss",
       "config": {
-        "url": "https://research.ke.com/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "feedUrl": "https://www.jiemodui.com/feed",
+        "_aihot": { "initialBackfillLimit": 5 }
       },
       "tier": "T2",
-      "owner_entity_id": "ke",
+      "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["研报", "企业发布"],
+      "tags": ["资讯", "全国", "机构", "教师"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "vanke-bohu",
-      "name": "万科泊寓",
-      "kind": "web_list",
+      "id": "dojing",
+      "name": "多鲸教育",
+      "kind": "rss",
       "config": {
-        "url": "https://www.bohuyu.com/",
+        "feedUrl": "https://www.dojing.cn/feed",
         "_aihot": { "initialBackfillLimit": 5 }
       },
-      "tier": "T1",
-      "owner_entity_id": "vanke-bohu",
-      "participation_mode": "editorial",
-      "interval_minutes": 360,
-      "tags": ["企业发布", "官方"],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "longfor-guanyu",
-      "name": "龙湖冠寓",
-      "kind": "web_list",
-      "config": {
-        "url": "https://www.longfor.com/business/guanyu",
-        "_aihot": { "initialBackfillLimit": 5 }
-      },
-      "tier": "T1",
-      "owner_entity_id": "longfor-guanyu",
-      "participation_mode": "editorial",
-      "interval_minutes": 360,
-      "tags": ["企业发布", "官方"],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "ziroom-news",
-      "name": "自如",
-      "kind": "web_list",
-      "config": {
-        "url": "https://www.ziroom.com/news/",
-        "_aihot": { "initialBackfillLimit": 5 }
-      },
-      "tier": "T1",
-      "owner_entity_id": "ziroom",
+      "tier": "T2",
+      "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["企业发布"],
+      "tags": ["资讯", "全国", "机构"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "sse-reits",
-      "name": "上交所 REITs 公告",
+      "id": "lanjinger-edu",
+      "name": "蓝鲸教育",
       "kind": "web_list",
       "config": {
-        "url": "https://www.sse.com.cn/disclosure/bond/announcement/product/",
+        "url": "https://www.lanjinger.com/",
         "_aihot": { "initialBackfillLimit": 5 }
       },
-      "tier": "T1",
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["资讯", "全国", "机构"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "sina-edu",
+      "name": "新浪教育",
+      "kind": "web_list",
+      "config": {
+        "url": "https://edu.sina.com.cn/",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["资讯", "全国", "家长", "学生"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "thepaper-edu",
+      "name": "澎湃新闻·教育",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.thepaper.cn/channel_25951",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["资讯", "全国", "家长", "学生"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "21cedu",
+      "name": "21世纪教育研究院",
+      "kind": "web_list",
+      "config": {
+        "url": "http://www.21cedu.org/",
+        "_aihot": { "initialBackfillLimit": 5 }
+      },
+      "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "REITs"],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "szse-reits",
-      "name": "深交所 REITs 公告",
-      "kind": "web_list",
-      "config": {
-        "url": "https://www.szse.cn/disclosure/bond/announcement/index.html",
-        "_aihot": { "initialBackfillLimit": 5 }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 360,
-      "tags": ["官方", "REITs"],
+      "tags": ["资讯", "全国", "机构", "教师"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     }

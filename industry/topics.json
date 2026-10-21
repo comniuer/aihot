@@ -1,154 +1,119 @@
 {
+  "$comment": "教育资讯话题体系：按身份划分（家长/学生/教师/学校与机构），地区默认广东。groups 决定浏览分组，topics 靠 tags 与信源聚合。",
   "groups": [
     {
-      "key": "city",
-      "name": "城市",
-      "blurb": "按城市追踪住房租赁动态"
+      "key": "identity",
+      "name": "身份",
+      "blurb": "按身份追踪教育动态：家长、学生、教师、学校与机构"
     },
     {
-      "key": "type",
-      "name": "物业类型",
-      "blurb": "按物业类型浏览：保租房、人才公寓、长租公寓……"
-    },
-    {
-      "key": "theme",
-      "name": "主题方向",
-      "blurb": "按主题方向浏览：REITs、租金、土地、数字化……"
+      "key": "region",
+      "name": "地区",
+      "blurb": "按地区浏览：广东（默认）、深圳、广州、全国"
     }
   ],
   "topics": [
     {
-      "slug": "shanghai",
-      "name": "上海",
-      "group": "city",
-      "tags": ["上海"],
-      "definition": "上海住房租赁全部动态：保租房 REITs、外资项目、政策法规与市场数据的持续追踪。"
+      "slug": "jiazhang",
+      "name": "家长",
+      "group": "identity",
+      "tags": [
+        "家长"
+      ],
+      "definition": "家长视角的教育动态：升学招生政策、学区与积分入学、双减与作业管理、心理健康的持续追踪。"
     },
     {
-      "slug": "hangzhou",
-      "name": "杭州",
-      "group": "city",
-      "tags": ["杭州"],
-      "definition": "杭州住房租赁动态：人才公寓、数字运营、保租房与存量改造的持续追踪。"
+      "slug": "xuesheng",
+      "name": "学生",
+      "group": "identity",
+      "tags": [
+        "学生"
+      ],
+      "definition": "学生视角的教育动态：中高考与学考报名通知、竞赛与综合评价、学习资源的持续追踪。"
     },
     {
-      "slug": "nanjing",
-      "name": "南京",
-      "group": "city",
-      "tags": ["南京"],
-      "definition": "南京住房租赁动态：保租房建设、存量改造与市场数据的持续追踪。"
+      "slug": "jiaoshi",
+      "name": "教师",
+      "group": "identity",
+      "tags": [
+        "教师"
+      ],
+      "definition": "教师视角的教育动态：教研培训、职称评审、课标课改、教学管理的持续追踪。"
     },
     {
-      "slug": "chengdu",
-      "name": "成都",
-      "group": "city",
-      "tags": ["成都"],
-      "definition": "成都住房租赁动态：人才公寓、TOD 模式租赁住房与市场数据的持续追踪。"
+      "slug": "jigou",
+      "name": "学校与机构",
+      "group": "identity",
+      "tags": [
+        "机构"
+      ],
+      "definition": "学校与机构视角的教育动态：政策法规、民办教育与校外培训监管、经费与建设的持续追踪。"
     },
     {
-      "slug": "wuhan",
-      "name": "武汉",
-      "group": "city",
-      "tags": ["武汉"],
-      "definition": "武汉住房租赁动态：保租房、高校周边长租公寓与市场数据的持续追踪。"
+      "slug": "guangdong",
+      "name": "广东",
+      "group": "region",
+      "tags": [
+        "广东"
+      ],
+      "definition": "广东全省教育动态：省教育厅政策、省教育考试院通知、各地市招考升学的持续追踪。本站默认话题。"
     },
     {
-      "slug": "changsha",
-      "name": "长沙",
-      "group": "city",
-      "tags": ["长沙"],
-      "definition": "长沙住房租赁动态：人才公寓、房价调控与租赁市场的持续追踪。"
+      "slug": "shenzhen",
+      "name": "深圳",
+      "group": "region",
+      "tags": [
+        "深圳"
+      ],
+      "definition": "深圳教育动态：市教育局政策发布、市招考办中考高考通知、积分入学与学位建设的持续追踪。"
     },
     {
-      "slug": "hefei",
-      "name": "合肥",
-      "group": "city",
-      "tags": ["合肥"],
-      "definition": "合肥住房租赁动态：人才安居、产业园区租赁住房与市场数据的持续追踪。"
+      "slug": "guangzhou",
+      "name": "广州",
+      "group": "region",
+      "tags": [
+        "广州"
+      ],
+      "definition": "广州教育动态：市教育局政策发布、招生考试与学校建设的持续追踪。"
     },
     {
-      "slug": "wuxi",
-      "name": "无锡",
-      "group": "city",
-      "tags": ["无锡"],
-      "definition": "无锡住房租赁动态：保租房、人口流入与租赁市场的持续追踪。"
+      "slug": "quanguo",
+      "name": "全国",
+      "group": "region",
+      "tags": [
+        "全国"
+      ],
+      "definition": "全国教育动态：教育部政策法规、全国性考试通知、教育行业趋势的持续追踪。"
     },
     {
-      "slug": "changzhou",
-      "name": "常州",
-      "group": "city",
-      "tags": ["常州"],
-      "definition": "常州住房租赁动态：人才公寓、旧改项目与租赁市场的持续追踪。"
+      "slug": "baoan-xiaoshengchu",
+      "name": "宝安小升初",
+      "group": "region",
+      "tags": [
+        "宝安",
+        "小升初"
+      ],
+      "definition": "深圳市宝安区小升初动态：积分入学政策、学区锁定与学位申请、报名材料与时间节点、民办初中招生的持续追踪。"
     },
     {
-      "slug": "baozufang",
-      "name": "保租房",
-      "group": "type",
-      "tags": ["保租房"],
-      "definition": "保障性租赁住房的全部动态：政策出台、项目开工开业、运营管理与 REITs 发行。"
+      "slug": "shenzhen-zhongkao",
+      "name": "深圳初升高",
+      "group": "region",
+      "tags": [
+        "深圳",
+        "中考"
+      ],
+      "definition": "深圳中考初升高动态：中考报名与志愿填报、指标到校与自主招生、录取分数线与招生计划的持续追踪。"
     },
     {
-      "slug": "rencai-gongyu",
-      "name": "人才公寓",
-      "group": "type",
-      "tags": ["人才公寓"],
-      "definition": "人才公寓的全部动态：各地人才安居政策、项目建设与分配运营的持续追踪。"
-    },
-    {
-      "slug": "changzu-gongyu",
-      "name": "长租公寓",
-      "group": "type",
-      "tags": ["长租公寓"],
-      "definition": "长租公寓的全部动态：品牌运营、市场格局、收并购与产品迭代的持续追踪。"
-    },
-    {
-      "slug": "jizufang",
-      "name": "集租房",
-      "group": "type",
-      "tags": ["集租房"],
-      "definition": "集体租赁住房的全部动态：用地供应、项目建设和运营管理的持续追踪。"
-    },
-    {
-      "slug": "reits",
-      "name": "REITs",
-      "group": "theme",
-      "tags": ["REITs"],
-      "definition": "住房租赁 REITs 的全部动态：发行上市、扩募、估值变化与市场交易。"
-    },
-    {
-      "slug": "m-and-a",
-      "name": "收并购",
-      "group": "theme",
-      "tags": ["收并购"],
-      "definition": "住房租赁领域的收并购动态：品牌整合、资产交易与股权变动。"
-    },
-    {
-      "slug": "rent",
-      "name": "租金",
-      "group": "theme",
-      "tags": ["租金"],
-      "definition": "租金水平与变化的全部动态：城市租金报告、租金监管政策与市场趋势。"
-    },
-    {
-      "slug": "occupancy",
-      "name": "入住率",
-      "group": "theme",
-      "tags": ["入住率"],
-      "definition": "入住率与供需数据的全部动态：运营数据报告、市场供需分析。"
-    },
-    {
-      "slug": "land-supply",
-      "name": "土地供应",
-      "group": "theme",
-      "tags": ["土地供应"],
-      "definition": "租赁住房用地供应的全部动态：用地成交、出让公告与土地政策。"
-    },
-    {
-      "slug": "digital",
-      "name": "数字化",
-      "group": "theme",
-      "tags": ["数字化"],
-      "definition": "住房租赁数字化的全部动态：运营平台、智能门锁、线上看房与管理系统。"
+      "slug": "shenzhen-youshengxiao",
+      "name": "深圳幼升小",
+      "group": "region",
+      "tags": [
+        "深圳",
+        "幼升小"
+      ],
+      "definition": "深圳幼升小动态：幼儿园入园与幼小衔接、小学学位申请与积分入学、学区划分与材料准备、民办小学招生的持续追踪。"
     }
   ]
 }

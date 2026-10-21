@@ -10,6 +10,10 @@ import { config, credential } from "../config.ts";
 import { sql } from "../db.ts";
 import { serverModules } from "../modules.ts";
 import { feishuInternalEnabled, forwardFeedbackToFeishu } from "../notify/feishu.ts";
+import { emailFeedbackEnabled, forwardFeedbackToEmail } from "../notify/email.ts";
+
+/** Where a fresh feedback goes: the email inbox when configured, else the internal Feishu chat. */
+const forwardOne = (id: number) => (emailFeedbackEnabled() ? forwardFeedbackToEmail(id) : forwardFeedbackToFeishu(id));
 
 export class FeedbackRejected extends Error {
   readonly status: number;
@@ -94,7 +98,7 @@ export async function submitFeedback(input: FeedbackInput): Promise<{ id: number
     INSERT INTO feedback (content, email, page_url, screenshot_key, source_hash, forward_error)
     VALUES (${content}, ${email}, ${pageUrl}, ${screenshotKey}, ${source}, 'pending') RETURNING id`;
   const id = row!.id;
-  void forwardFeedbackToFeishu(id).catch(() => {});
+  void forwardOne(id).catch(() => {});
   return { id };
 }
 
@@ -104,7 +108,7 @@ export async function submitFeedback(input: FeedbackInput): Promise<{ id: number
  * itself: the backups keep it and nothing expires it.
  */
 export function screenshotsForwarded(): boolean {
-  return feishuInternalEnabled() && credential("integrations", "FEISHU_INTERNAL_CHAT_ID") !== null;
+  return emailFeedbackEnabled() || (feishuInternalEnabled() && credential("integrations", "FEISHU_INTERNAL_CHAT_ID") !== null);
 }
 
 /**
@@ -112,7 +116,7 @@ export function screenshotsForwarded(): boolean {
  * failing) is tried again for a week. Newer than a few minutes is still being sent by its submission.
  */
 export async function forwardPendingFeedback(): Promise<{ sent: number; failed: number }> {
-  if (!feishuInternalEnabled()) return { sent: 0, failed: 0 };
+  if (!feishuInternalEnabled() && !emailFeedbackEnabled()) return { sent: 0, failed: 0 };
   const rows = await sql<{ id: number }[]>`
     SELECT id FROM feedback WHERE forwarded_at IS NULL AND forward_error IS NOT NULL
       AND created_at < now() - interval '5 minutes' AND created_at > now() - interval '7 days'
@@ -121,7 +125,7 @@ export async function forwardPendingFeedback(): Promise<{ sent: number; failed: 
   let failed = 0;
   for (const r of rows) {
     try {
-      if ((await forwardFeedbackToFeishu(r.id)) === "sent") sent += 1;
+      if ((await forwardOne(r.id)) === "sent") sent += 1;
     } catch {
       failed += 1;
     }

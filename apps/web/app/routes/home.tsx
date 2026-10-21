@@ -17,6 +17,13 @@ export const { clientLoader, shouldRevalidate } = pageReuse<typeof loader>();
 export async function loader({ request }: Route.LoaderArgs) {
   const url = new URL(request.url);
   const q = url.searchParams.get("q");
+  // DEFAULT_TOPIC（部署 .env 设置）：访客从站外或直接输入网址进入首页时，默认落到指定话题页（如 guangdong）。
+  // 站内跳转（referer 同域）不劫持，精选页仍可正常访问；清空该变量即恢复原行为。
+  const defaultTopic = (process.env.DEFAULT_TOPIC || "").trim();
+  if (defaultTopic && !url.search && request.headers.get("sec-fetch-mode") === "navigate"
+      && !(request.headers.get("referer") || "").includes(url.host)) {
+    throw redirect(`/topics/${defaultTopic}`);
+  }
   // Search lives on /all; keep the parameters so old links still land on results.
   if (q && q.trim()) throw redirect(`/all${url.search}`);
   const filters = readFilters(url.searchParams);

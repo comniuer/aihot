@@ -33,6 +33,8 @@ services:
       POSTGRES_DB: aihot
     volumes:
       - db:/var/lib/postgresql/data
+    # 内存上限：小内存服务器（1.6G）整体规划，防 postgres 无界增长
+    mem_limit: 256m
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U aihot -d aihot"]
       interval: 5s
@@ -52,6 +54,9 @@ services:
       <<: *backend-env
       API_HOST: 0.0.0.0
       API_PORT: "3001"
+      # V8 堆上限：强制 GC 更积极，RSS 从 170MB 压到 ~150MB
+      NODE_OPTIONS: --max-old-space-size=192
+    mem_limit: 256m
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -62,6 +67,11 @@ services:
     # On stop the worker lets a paid call in flight finish (STOP_TIMEOUT_MS, 195 s); Docker's default
     # 10 s would kill it mid-call and leave "outcome unknown" receipts that are paid for again.
     stop_grace_period: 210s
+    environment:
+      <<: *backend-env
+      # V8 堆上限：worker 是内存大头（原 222MB），压到 ~200MB
+      NODE_OPTIONS: --max-old-space-size=320
+    mem_limit: 384m
     depends_on:
       setup:
         condition: service_completed_successfully
@@ -74,10 +84,14 @@ services:
       NODE_ENV: production
       API_BASE_URL: http://api:3001
       SITE_URL: ${SITE_URL:-http://localhost:3000}
+      DEFAULT_TOPIC: ${DEFAULT_TOPIC:-}
       TRUST_PROXY: ${TRUST_PROXY:-false}
       AIHOT_RELEASE: ${AIHOT_RELEASE:-}
       WEB_HOST: 0.0.0.0
       WEB_PORT: "3000"
+      # V8 堆上限：SSR 进程较轻（原 86MB）
+      NODE_OPTIONS: --max-old-space-size=128
+    mem_limit: 192m
     ports:
       - "${PORT:-3000}:3000"
     depends_on:
